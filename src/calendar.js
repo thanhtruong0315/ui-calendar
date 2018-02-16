@@ -74,7 +74,7 @@ angular.module('ui.calendar', [])
             function (previous, source) {
               if (angular.isArray(source)) {
                 previous.push(source);
-              } else if (angular.isObject(source) && angular.isArray(source.events)) {
+              } else if (angular.isObject(source) && angular.isArray(source.eventSources.events)) {
                 var extEvent = Object.keys(source).filter(
                   function (key) {
                     return (key !== '_id' && key !== 'events');
@@ -87,7 +87,7 @@ angular.module('ui.calendar', [])
                   }
                 );
 
-                previous.push(source.events);
+                previous.push(source.eventSources.events);
               }
               return previous;
             },
